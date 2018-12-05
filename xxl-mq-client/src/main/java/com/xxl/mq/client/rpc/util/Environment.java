@@ -23,7 +23,9 @@ public class Environment {
 	/**
 	 * zk config file
 	 */
-	private static final String ZK_ADDRESS_FILE = "/data/webapps/xxl-conf.properties";
+//	private static final String ZK_ADDRESS_FILE = "/data/webapps/xxl-conf.properties";
+	// -Dxxl-file="E:\tac\xxl-mq\xxl-mq-broker\src\main\resources\xxl-conf.properties"
+	private static final String ZK_ADDRESS_FILE = System.getProperty("xxl-file") ;
 
 	/**
 	 * zk address
@@ -31,7 +33,7 @@ public class Environment {
 	public static final String ZK_ADDRESS;		// zk地址：格式	ip1:port,ip2:port,ip3:port
 	
 	static {
-		Properties prop = PropertiesUtil.loadFileProperties(ZK_ADDRESS_FILE);
+		Properties prop = PropertiesUtil.loadFileProperties("E:\\tac\\xxl-mq\\xxl-mq-broker\\src\\main\\resources\\xxl-conf.properties");
 		ZK_ADDRESS = PropertiesUtil.getString(prop, "zkserver");
 	}
 	

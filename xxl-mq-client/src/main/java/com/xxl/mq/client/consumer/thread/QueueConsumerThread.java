@@ -75,7 +75,7 @@ public class QueueConsumerThread extends Thread {
                                     data = JacksonUtil.readValue(msg.getData(), Map.class);
                                 }
                                 consumerHandler.consume(data);
-
+                                logger.info("=====consumerHandler msg: " +consumerHandler.toString());
                                 // consume suceess
                                 msg.setStatus(MessageStatus.SUCCESS.name());
                                 msg.setMsg(MessageFormat.format("<hr>》》》时间: {0} <br>》》》操作: 消息消费成功(status>>>SUCCESS) <br>》》》注册信息: {1}", tim, checkConsume.toString()));
