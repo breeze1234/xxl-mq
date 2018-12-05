@@ -210,7 +210,7 @@ public class ZkQueueConsumerUtil {
 			index++;
 		}
 		String registryTreeKeys = MessageFormat.format("LocalRegistryKey={0}, AllRegistryTree={1}", localAddressRandom, sortSet.toString());
-
+		logger.info("==== registryTreeKeys: " + registryTreeKeys);
 		// for biz
 		if (type == QUEUE) {
 			return new ActiveInfo(index, sortSet.size(), registryTreeKeys);
@@ -237,6 +237,7 @@ public class ZkQueueConsumerUtil {
 			this.rank = rank;
 			this.total = total;
 			this.registryRankInfo = registryRankInfo;
+			logger.info("==== ActiveInfo: " + toString());
 		}
 
 		@Override

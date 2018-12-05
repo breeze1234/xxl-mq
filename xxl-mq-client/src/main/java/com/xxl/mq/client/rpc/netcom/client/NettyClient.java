@@ -81,7 +81,10 @@ public class NettyClient {
 	public static RpcResponse send(RpcRequest request) throws Exception {
 
 		try {
+			// 取 zookeeper 上的节点存储的消费者的 ip list, random 取一个ip
 			String address = ZkServiceDiscovery.discover(request.getRegistryKey());
+			logger.info("=====netty key: " + request.toString());
+			logger.info("=====netty address: " + address);
 			if (address == null) {
 				throw new RuntimeException(">>>>>>>>>>> xxl-rpc, no address from service:" + request.getClassName());
 			}
